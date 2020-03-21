@@ -1,0 +1,27 @@
+var timer = document.getElementById("timer");
+var questionDisplayed = document.getElementById("question");
+
+var questions = ["Which of the following is not a valid data type in Javascript?",
+    "If/else statements contain their conditional logic within:",
+    "Inside which HTML element do we put the JavaScript?",
+    'What is the correct JavaScript syntax to change the content of the HTML element below? \n\n <p id="demo">This is a demonstration.</p>',
+    'Where is the correct place to insert a JavaScript?',
+    'What is the correct syntax for referring to an external script called "xxx.js"?',
+    'The external Javascript file must contain the <script> tag.',
+    'How do you write "Hello World" in an alert box?',
+    'How do you create a function in JavaScrpt?',
+    'How do you call a function named "myFunction"?',
+    'How to write an IF statement in JavaScript?',
+    'How to write an IF statement for executing some code if "i" is NOT equal to 5?',
+    'How does a WHILE loop start?',
+    'How does a FOR loop start?',
+    'How can you add a comment in a JavaScript?',
+    'How to insert a comment that has more than one line?',
+    'What is the correct way to write a JavaScript array?',
+    'How do you round the number 7.25 to the nearest integer?',
+    'How do you find the number with the highest value of x and y?',
+    'What event occurs when the user clicks on an HTML element?',
+    'How do you declare a JavaScript variable?',
+    'Which operator is used to assign a value to a variable?',
+    'What will the following code return: Boolean(10 > 9)',
+    'Is JavaScript case sensitive?'];

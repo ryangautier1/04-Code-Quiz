@@ -1,0 +1,36 @@
+header {
+    width: 95%;
+    height: 42px;
+    margin: 0 auto;
+    border-bottom: 3px solid #eee;
+
+}
+
+#viewHighscores {
+    font-size: 20px;
+    float: left;
+    margin-top: 3px;
+}
+
+#timer {
+    font-size: 20px;
+    float: right;
+    margin-top: 3px;
+}
+
+section {
+    width: 600px;
+    margin: 50px auto;
+}
+
+h2 {
+    font-weight: 400;
+}
+
+#question {
+    margin: 10px 10px 20px 10px;
+}
+
+.options {
+    margin-left: 20px;
+}
