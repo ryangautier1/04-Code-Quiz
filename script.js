@@ -1,8 +1,10 @@
+// Variables for HTML elements
 var timer = document.getElementById("timer");
 var questionDisplayed = document.getElementById("question");
 var startBtn = document.getElementById("start");
 var answerBtn = document.getElementById("answer-choices");
 
+// Variable for quiz questions, choices, and answers
 var quiz = [{
     title: "Which of the following is not a valid data type in Javascript?",
     choices: ["1.) Number", "2.) String", "3.) Boolean", "4.) Array"],
@@ -128,11 +130,22 @@ var quiz = [{
 }];
 
 function runQuiz() {
+    // Hide start button
     startBtn.classList.add("hidden");
+    // Display answer choices
     answerBtn.classList.remove("hidden");
     var question = document.getElementById("question");
-    question.textContent = quiz[0].title;
-}
+    
+    // Loop for changing question and answers displayed
+    // for (var i = 0; i < quiz.length; i++) {
+        question.textContent = quiz[0].title;
+        for (var j = 0; j < 4; j++){
+            var currentAns = document.getElementsByClassName("options")[j];
+            
+            currentAns.textContent = quiz[0].choices[j];
+        }
+    }
+// }
 
 startBtn.addEventListener("click",function(event){
     event.preventDefault

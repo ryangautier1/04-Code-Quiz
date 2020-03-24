@@ -35,6 +35,10 @@ h2 {
     margin: 0 auto;
 }
 
+.options {
+    text-align: left;
+}
+
 .hidden {
     display: none;
 }
