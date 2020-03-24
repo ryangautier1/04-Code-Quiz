@@ -1,5 +1,7 @@
 var timer = document.getElementById("timer");
 var questionDisplayed = document.getElementById("question");
+var startBtn = document.getElementById("start");
+var answerBtn = document.getElementById("answer-choices");
 
 var quiz = [{
     title: "Which of the following is not a valid data type in Javascript?",
@@ -126,8 +128,13 @@ var quiz = [{
 }];
 
 function runQuiz() {
+    startBtn.classList.add("hidden");
+    answerBtn.classList.remove("hidden");
     var question = document.getElementById("question");
     question.textContent = quiz[0].title;
 }
 
-runQuiz();
+startBtn.addEventListener("click",function(event){
+    event.preventDefault
+    runQuiz();
+});
