@@ -42,7 +42,7 @@ var quiz = [{
     title: 'The external Javascript file must contain the <script> tag.',
     choices: ["1.) True", "2.) False", "3.) Potato?", "4.) Potato."],
     answer: "2.) False"
-}, 
+},
 {
     title: 'How do you write "Hello World" in an alert box?',
     choices: ['1.) msgBox("Hello World!");', '2.) alert("Hello World!");', '3.) msg("Hello World!");', '4.) alertBox("Hello World");'],
@@ -120,7 +120,7 @@ var quiz = [{
 },
 {
     title: 'What will the following code return: Boolean(10 > 9)',
-    choices: ['1.) true', '2.) false','3.) NaN', '4.) null'],
+    choices: ['1.) true', '2.) false', '3.) NaN', '4.) null'],
     answer: '1.) true'
 },
 {
@@ -135,19 +135,30 @@ function runQuiz() {
     // Display answer choices
     answerBtn.classList.remove("hidden");
     var question = document.getElementById("question");
-    
+    cycleQuestions();
+}
+
+
+function cycleQuestions() {
     // Loop for changing question and answers displayed
     // for (var i = 0; i < quiz.length; i++) {
-        question.textContent = quiz[0].title;
-        for (var j = 0; j < 4; j++){
+    var currentQuestion = 0;
+    // while (currentQuestion < quiz.length) {
+        question.textContent = quiz[currentQuestion].title;
+        for (var j = 0; j < 4; j++) {
             var currentAns = document.getElementsByClassName("options")[j];
-            
-            currentAns.textContent = quiz[0].choices[j];
+            currentAns.textContent = quiz[currentQuestion].choices[j];
         }
+        answerBtn.addEventListener("click", function (event) {
+            event.preventDefault();
+            var ansPicked = event.target.getAttribute("data-option");
+            console.log(ansPicked);
+        });
     }
 // }
 
-startBtn.addEventListener("click",function(event){
+
+startBtn.addEventListener("click", function (event) {
     event.preventDefault
     runQuiz();
 });
