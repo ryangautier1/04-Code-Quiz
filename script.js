@@ -1,7 +1,7 @@
 var timer = document.getElementById("timer");
 var questionDisplayed = document.getElementById("question");
 
-var questions = [{
+var quiz = [{
     title: "Which of the following is not a valid data type in Javascript?",
     choices: ["1.) Number", "2.) String", "3.) Boolean", "4.) Array"],
     answer: "4.) Array"
@@ -125,4 +125,9 @@ var questions = [{
     answer: '1.) Yes'
 }];
 
-console.log(questions[1].title);
+function runQuiz() {
+    var question = document.getElementById("question");
+    question.textContent = quiz[0].title;
+}
+
+runQuiz();
