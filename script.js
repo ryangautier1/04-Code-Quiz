@@ -199,6 +199,7 @@ answerBtn.addEventListener("click", function (event) {
     }
 });
 
+// function for game timer
 function startTimer() {
     interval = setInterval(function () {
         var time = parseInt(timer.textContent);
@@ -212,21 +213,29 @@ function startTimer() {
     }, 1000);
 };
 
+// Game over function
 function gameOver() {
+    // hide elements we're done with 
     timer.classList.add("hidden");
     answerBtn.classList.add("hidden");
-    question.textContent = "All done! Enter your initials to save your score.";
     finalScore.classList.remove("hidden");
     initialsForm.classList.remove("hidden");
+
+    // display game over message and final score
+    question.textContent = "All done! Enter your initials to save your score.";
     finalScore.textContent = "Final score: " + score;
+    
+    // save score to local storage
     localStorage.setItem("score", score);
 }
 
+// Start button click listener
 startBtn.addEventListener("click", function (event) {
     event.preventDefault;
     runQuiz();
 });
 
+// Function to submit form for saving scores
 submitBtn.addEventListener("click", function(event){
     event.preventDefault;
     var initials = initialsInput.value;

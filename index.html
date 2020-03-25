@@ -22,13 +22,16 @@
         <div id="timer">60</div>
     </header>
 
+    <!--Section for main content-->
     <section>
         <h2 id="question">
             Click Start to begin!
         </h2>
 
+        <!--Start button-->
         <button type="button" class="btn btn-primary" id="start">Start</button>
 
+        <!--Answer choice buttons-->
         <div class="btn-group-vertical hidden" id="answer-choices">
             <button type="button" class="btn btn-primary options" data-option="1">1.)</button>
             <button type="button" class="btn btn-primary options" data-option="2">2.)</button>
@@ -36,10 +39,14 @@
             <button type="button" class="btn btn-primary options" data-option="4">4.)</button>
         </div>
 
+        <!--Display correct or incorrect in response to user-->
         <div class="hidden" id="feedback-correct"><hr><i>Correct!</i></div>
         <div class="hidden" id="feedback-wrong"><hr><i>Wrong!</i></div>
+
+        <!--Show final score after game is over-->
         <div class="hidden" id="final-score"><hr></div>
 
+        <!--Ask user for initials-->
         <form id="initials-form" class="hidden">
             <div class="form-group">
               <label for="initials-input"></label>
