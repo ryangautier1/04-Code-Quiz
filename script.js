@@ -5,6 +5,7 @@ var startBtn = document.getElementById("start");
 var answerBtn = document.getElementById("answer-choices");
 var correctTxt = document.getElementById("feedback-correct");
 var wrongTxt = document.getElementById("feedback-wrong");
+var finalScore = document.getElementById("final-score")
 var score = 0;
 var currentQuestion = -1;
 var ansPicked;
@@ -146,13 +147,26 @@ function runQuiz() {
 }
 
 function getQuestion() {
+    // iterate the question
     currentQuestion++;
+
+    // check if there are any more questions
     if (currentQuestion == quiz.length) {
-        alert("game over");
+        gameOver();
         return;
-}
-    console.log(currentQuestion);
+    }
+
+    // clear the response from the previous question
+    var responseInterval = setInterval(function () {
+        correctTxt.classList.add("hidden");
+        wrongTxt.classList.add("hidden");
+        clearInterval(responseInterval);
+    }, 1000);
+
+    // print the current question on the screen
     question.textContent = quiz[currentQuestion].title;
+    
+    // print the answer choices on the screen
     for (var j = 0; j < 4; j++) {
         var currentAns = document.getElementsByClassName("options")[j];
         currentAns.textContent = quiz[currentQuestion].choices[j];
@@ -161,49 +175,47 @@ function getQuestion() {
 
 answerBtn.addEventListener("click", function (event) {
     event.preventDefault();
-    ansPicked = event.target.getAttribute("data-option");
-    correctAns = quiz[currentQuestion].answer;
     
+    // get usesr answer choice
+    ansPicked = event.target.getAttribute("data-option");
+
+    // get correct answer
+    correctAns = quiz[currentQuestion].answer;
+
+    // check if user chose correct answer
     if (ansPicked == correctAns) {
         correctTxt.classList.remove("hidden");
         score++;
-        console.log(score);
         getQuestion();
     }
     else {
         wrongTxt.classList.remove("hidden");
         timer.textContent = timer.textContent - 4;
         getQuestion();
-
     }
 });
-
-// function checkAnswer() {
-//     correctAns = quiz[currentQuestion].answer;
-//     if (ansPicked == correctAns) {
-//         correctTxt.classList.remove("hidden");
-//         score++;
-//     }
-//     else {
-//         wrongTxt.classList.remove("hidden");
-//         timer.textContent = timer.textContent - 4;
-//     }
-    // if (currentQuestion < quiz.length) {
-    //     currentQuestion++;
-    //     getQuestion(currentQuestion);
-    // }
-    // else {
-    //     alert("game over");
-    // }
-
-
 
 function startTimer() {
     interval = setInterval(function () {
         var time = parseInt(timer.textContent);
         timer.textContent = time - 1;
+       
+        // check if time is up
+        if (parseInt(timer.textContent) <= 0) {
+            gameOver();
+            clearInterval(interval);
+        }
     }, 1000);
 };
+
+function gameOver() {
+    timer.classList.add("hidden");
+    answerBtn.classList.add("hidden");
+    question.textContent = "All done! Enter your initials to save your score.";
+    finalScore.classList.remove("hidden");
+    finalScore.textContent = "Final score: " + score;
+    // localStorage.setItem("score", score);
+}
 
 startBtn.addEventListener("click", function (event) {
     event.preventDefault
