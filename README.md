@@ -25,4 +25,4 @@ THEN I can save my initials and score
 ```
 
 ## Screenshot
-![Screenshot of website](https://github.com/ryangautier1/03-Password-Generator/blob/master/Screenshot.png?raw=true)
+![Screenshot of website](https://github.com/ryangautier1/04-Code-Quiz/blob/master/screenshot.PNG?raw=true)
