@@ -96,7 +96,7 @@ var quiz = [{
 },
 {
     title: 'How to insert a comment that has more than one line?',
-    choices: ['1.) //This comment has\\nmore than one line//', '2.) <!--This comment has\\nmore than one line-->', '3.) /*This comment has\\nmore than one line*/', '4.) %%This comment has\\nmore than one line%%'],
+    choices: ['1.) //This comment has\nmore than one line//', '2.) <!--This comment has\nmore than one line-->', '3.) /*This comment has\nmore than one line*/', '4.) %%This comment has\nmore than one line%%'],
     answer: 3
 },
 {
