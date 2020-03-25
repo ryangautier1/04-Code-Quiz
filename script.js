@@ -5,11 +5,15 @@ var startBtn = document.getElementById("start");
 var answerBtn = document.getElementById("answer-choices");
 var correctTxt = document.getElementById("feedback-correct");
 var wrongTxt = document.getElementById("feedback-wrong");
-var finalScore = document.getElementById("final-score")
+var finalScore = document.getElementById("final-score");
+var initialsForm = document.getElementById("initials-form");
+var initialsInput = document.getElementById("initials-input");
+var submitBtn = document.getElementById("submit");
+
 var score = 0;
 var currentQuestion = -1;
 var ansPicked;
-var thinking = true;
+
 
 // Variable for quiz questions, choices, and answers
 var quiz = [{
@@ -213,11 +217,19 @@ function gameOver() {
     answerBtn.classList.add("hidden");
     question.textContent = "All done! Enter your initials to save your score.";
     finalScore.classList.remove("hidden");
+    initialsForm.classList.remove("hidden");
     finalScore.textContent = "Final score: " + score;
-    // localStorage.setItem("score", score);
+    localStorage.setItem("score", score);
 }
 
 startBtn.addEventListener("click", function (event) {
-    event.preventDefault
+    event.preventDefault;
     runQuiz();
 });
+
+submitBtn.addEventListener("click", function(event){
+    event.preventDefault;
+    var initials = initialsInput.value;
+    localStorage.setItem("initials", initials);
+    window.location.href("highscores.html");
+})

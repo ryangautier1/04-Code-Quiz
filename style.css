@@ -39,6 +39,10 @@ h2 {
     text-align: left;
 }
 
+#show-scores {
+    margin: 64px auto;
+}
+
 .hidden {
     display: none;
 }
